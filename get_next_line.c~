@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dtony <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/17 14:31:43 by dtony             #+#    #+#             */
-/*   Updated: 2018/12/19 20:03:25 by dtony            ###   ########.fr       */
+/*   Created: 2018/12/17 17:22:02 by dtony             #+#    #+#             */
+/*   Updated: 2018/12/17 19:59:56 by dtony            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 1
-# include <unistd.h>
-# include "libft/libft.h"
+#include "get_next_line.h"
 
-typedef static struct	s_line
+int		get_next_line(const int fd, char **line)
 {
-	int					fd;
-	int					ret;
-	char				*temp;
-	t_reader			*prev;
-	t_reader			*next;
-}						t_line;
+	int		ret;
+	char	buf[BUFF_SIZE + 1];
 
-#endif
+	if (line && fd > 0)
+	{
+		while (!(ft_strchr(buf,'\n'))
+			{
+				if ((ret = read(fd, buf, BUFF_SIZE)) < 0)
+					return (-1);
+				if (!(*line = (char *)malloc(sizeof(char) * ft_strlen(buf))))
+					return (-1);
+				ft_strcpy(*line, buf);
+}
