@@ -21,26 +21,5 @@ char	*linefiller(char *dest, char *buf, char c)
 
 int		get_next_line(const int fd, char **line)
 {
-	int			i;
-	int			ret;
-	static char	*temp;
-	char		buf[BUFF_SIZE + 1];
-	char		**lines;
-
-	if (line && fd > 0)
-	{
-		i = 0;
-		while ((ret = read(fd, buf, BUFF_SIZE)))
-		{
-			buf[ret] = '\0';
-			temp = ft_strjoin_free(temp, buf);
-			if (ft_strchr(buf, '\n'))
-				break;
-		}
-		lines = ft_strsplit(lines, temp, '\n');
-		*line = ft_strdup(lines[0]);
-		free(temp);
-		temp = ft_strchr(temp, '\n');
-	}
-	return (-1);
+	
 }
