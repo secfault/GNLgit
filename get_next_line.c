@@ -22,7 +22,7 @@ static int		checkstock(int fd, char **stock, char **line)
 	{
 		start = ft_strchr(stock[fd], '\n') - 1;
 		*line = ft_strrsub(start, ft_strrlen(start));
-		tmp = stock[fd];
+		tmp = ft_strdup(stock[fd]);
 		free(stock[fd]);
 		stock[fd] = ft_strdup(ft_strchr(tmp, '\n') + 1);
 		free(tmp);
@@ -35,9 +35,14 @@ static void		readline(char **stock, char **line, char *buf, int fd)
 {
 	char	*start;
 
-	start = ft_strchr(buf, '\n') - 1;
-	stock[fd] = ft_strjoin(stock[fd], 
-				ft_strrsub(start, ft_strrlen(start)));
+	if (buf[0] != '\n')
+	{ 
+		start = ft_strchr(buf, '\n') - 1;
+		ft_putstr("start = ");
+		ft_putendl(start);
+		stock[fd] = ft_strjoin(stock[fd], 
+					ft_strrsub(start, ft_strrlen(start)));
+	}
 	*line = ft_strdup(stock[fd]);
 	free(stock[fd]);
 	stock[fd] = ft_strdup(ft_strchr(buf, '\n') + 1);
@@ -53,6 +58,7 @@ int				get_next_line(const int fd, char **line)
 		return (-1);
 	if (checkstock(fd, stock, line))
 		return (1);
+	ft_bzero(buf, ft_strlen(buf));
 	while ((ret = read(fd, buf, BUFF_SIZE)))
 	{
 		buf[BUFF_SIZE + 1] = '\0';
@@ -62,7 +68,12 @@ int				get_next_line(const int fd, char **line)
 			return (1);
 		}
 		else
+		{
 			stock[fd] = ft_strjoin(stock[fd], buf);
+			ft_putstr("stock = ");
+			ft_putendl(stock[fd]);
+		}
+		ft_bzero(buf, ft_strlen(buf));
 	}
 	if (checkstock(fd, stock, line))
 		return (1);
