@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dtony <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: dtony <dtony@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 13:12:51 by dtony             #+#    #+#             */
-/*   Updated: 2018/12/17 19:44:32 by dtony            ###   ########.fr       */
+/*   Updated: 2019/01/31 13:29:39 by dtony            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,14 @@ void				ft_putnbr_fd(int n, int fd);
 int					ft_itoa_sizer(int nb);
 int					ft_is_trim(char const s);
 int					ft_trim_sizer(char const *s);
-int					ft_is_trim(char const s);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t l));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+size_t				ft_strrlen(char *str);
+char				*ft_strrsub(const char *start, size_t len);
+void				*ft_memrcpy(void *dest, const void *src, size_t len);
 
 #endif

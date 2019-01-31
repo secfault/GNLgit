@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dtony <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: dtony <dtony@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 19:00:37 by dtony             #+#    #+#             */
-/*   Updated: 2018/12/19 19:13:21 by dtony            ###   ########.fr       */
+/*   Updated: 2019/01/31 17:28:21 by dtony            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t		ft_strrlen(char *str)
 	size_t	len;
 
 	len = 0;
-	while (str)
+	while (*str)
 	{
 		len++;
 		str--;

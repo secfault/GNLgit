@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dtony <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: dtony <dtony@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 19:41:07 by dtony             #+#    #+#             */
-/*   Updated: 2018/12/19 19:52:47 by dtony            ###   ########.fr       */
+/*   Updated: 2019/01/29 13:52:05 by dtony            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*ft_realloc(char *ptr, int bufsize)
 			return (NULL);
 		ft_strcpy(ret, cpy);
 		free(cpy);
+		return (ret);
 	}
 	return (NULL);
 }

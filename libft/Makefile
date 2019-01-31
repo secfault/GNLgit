@@ -1,14 +1,14 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dtony <marvin@42.fr>                       +#+  +:+       +#+         #
+#    By: dtony <dtony@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 17:59:25 by dtony             #+#    #+#              #
-#    Updated: 2018/12/12 14:52:21 by dtony            ###   ########.fr        #
+#    Updated: 2019/01/29 13:40:40 by dtony            ###   ########.fr        #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
 CC		=	gcc
 
@@ -21,7 +21,7 @@ NAME	=	libft.a
 SRC		=	ft_memset.c \
 		ft_bzero.c \
 		ft_memcpy.c \
-		ft_memcpy_rev.c \
+		ft_memrcpy.c \
 		ft_memccpy.c \
 		ft_memmove.c \
 		ft_memcmp.c \
@@ -79,7 +79,9 @@ SRC		=	ft_memset.c \
 		ft_lstdel.c \
 		ft_lstadd.c \
 		ft_lstiter.c \
-		ft_lstmap.c
+		ft_lstmap.c \
+		ft_strrsub.c \
+		ft_strrlen.c
 
 RM		=	rm -f
 
