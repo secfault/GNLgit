@@ -6,7 +6,7 @@
 /*   By: dtony <dtony@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 14:31:43 by dtony             #+#    #+#             */
-/*   Updated: 2019/02/21 11:18:24 by dtony            ###   ########.fr       */
+/*   Updated: 2019/02/21 11:36:37 by dtony            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "libft/libft.h"
 # include <stdio.h>
 
-# define BUFF_SIZE 2048
+# define BUFF_SIZE 5
 
 int		get_next_line(const int fd, char **line);
 

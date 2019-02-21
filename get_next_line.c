@@ -47,7 +47,6 @@ static int			readline(char **stock, char **line, char *buf, int fd)
 		free(stock[fd]);
 		if ((ft_strchr(buf, '\n') + 1) != '\0')
 			stock[fd] = ft_strdup(ft_strchr(buf, '\n') + 1);
-		// ft_putendl("fuq");
 	}
 	else
 	{
@@ -57,15 +56,8 @@ static int			readline(char **stock, char **line, char *buf, int fd)
 			free(stock[fd]);
 		if ((ft_strchr(buf, '\n') + 1) != '\0')
 			stock[fd] = ft_strdup(ft_strchr(buf, '\n') + 1);
-		// ft_putendl("yes");
 	}
-	// ft_putstr("\nligne :");
-	// ft_putendl(*line);
-	// ft_putstr("\nstock :");
-	// ft_putendl(stock[fd]);
-	// ft_putendl("\n*ligne lue*");
 	return (1);
-	
 }
 
 int					get_next_line(const int fd, char **line)
@@ -80,19 +72,11 @@ int					get_next_line(const int fd, char **line)
 	while ((ret = read(fd, buf, BUFF_SIZE)))
 	{
 		buf[ret] = '\0';
-		// ft_putendl("");
-		// ft_putstr("buf = ");
-		// ft_putstr(buf);
-		// ft_putendl("\nFIN");
 		if (ft_strchr(buf, '\n') &&
 				readline(stock, line, buf, fd))
 					return (1);
 		else
 			stock[fd] = ft_strjoin(stock[fd], buf);
-		// ft_putendl("");
-		// ft_putstr("stock = ");
-		// ft_putstr(stock[fd]);
-		// ft_putendl("\nFIN");
 		ft_bzero(buf, ft_strlen(buf));
 	}
 	if (checkstock(fd, stock, line))
