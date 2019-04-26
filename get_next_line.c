@@ -86,5 +86,7 @@ int					get_next_line(const int fd, char **line)
 		return (stock[fd] != NULL ? 1 : 0);
 	if (stock[fd][1] != '\0')
 		*line = ft_strdup(stock[fd]);
+	if (stock[fd])
+		free(stock[fd]);
 	return (0);
 }
