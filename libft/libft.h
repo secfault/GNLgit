@@ -6,7 +6,7 @@
 /*   By: dtony <dtony@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 13:12:51 by dtony             #+#    #+#             */
-/*   Updated: 2019/01/31 13:29:39 by dtony            ###   ########.fr       */
+/*   Updated: 2019/06/05 13:40:27 by dtony            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void				ft_putnbr_fd(int n, int fd);
 int					ft_itoa_sizer(int nb);
 int					ft_is_trim(char const s);
 int					ft_trim_sizer(char const *s);
+char				*ft_strfjoin(char *s1, char const *s2);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t l));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));

@@ -6,7 +6,7 @@
 #    By: dtony <dtony@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 17:59:25 by dtony             #+#    #+#              #
-#    Updated: 2019/01/29 13:40:40 by dtony            ###   ########.fr        #
+#    Updated: 2019/06/05 13:37:21 by dtony            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ LFLAGS	=	-lmy -L ./
 NAME	=	libft.a
 
 SRC		=	ft_memset.c \
+		ft_strfjoin.c \
 		ft_bzero.c \
 		ft_memcpy.c \
 		ft_memrcpy.c \
