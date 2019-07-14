@@ -32,6 +32,11 @@ static int			checkstock(int fd, char **stock, char **line)
 				i++;
 			if ((end = ft_strchr(stock[fd] + i, '\n')) != NULL)
 				*line = ft_strsub(stock[fd], i, end - stock[fd] - i);
+			else
+			{
+				/* code */
+			}
+			
 			tmp = ft_strdup(stock[fd] + i);
 			free(stock[fd]);
 			stock[fd] = NULL;
@@ -80,14 +85,18 @@ static int			checkstock(int fd, char **stock, char **line)
 
 static int			readline(char **stock, char **line, char *buf, int fd)
 {
+	int		i;
 	char	*end;
 	char	*new;
 
+i = 0;
 printf("____________READLINE____________\n");
 	if (buf[0] == '\n')
 	{
+		while (buf[i] == '\n' && buf[i])
+			i++;
 		printf("start 0\n");
-		end = ft_strchr(buf + 1, '\n');
+		end = ft_strchr(buf + i, '\n');
 		printf("end: '%s'\n", end);
 		if(stock[fd])
 		{
@@ -99,13 +108,18 @@ printf("____________READLINE____________\n");
 		else if (end != NULL)
 		{
 			printf("nostock\n");
-			*line = ft_strsub(buf, 1, end - buf - 1);
+			*line = ft_strsub(buf, i, end - buf - i);
 		}
 		if (end != NULL && end[1] != '\0')
 		{
 			// verifier ret
 			stock[fd] = ft_strdup(end + 1);
 			printf("stockbufend: '%s'\n", stock[fd]);
+		}
+		else if (!end)
+		{
+			stock[fd] = ft_strdup(buf + i);
+			printf("stock no end: '%s'\n", stock[fd]);
 		}
 		else if (ft_strlen(buf) < BUFF_SIZE)
 		{
@@ -152,12 +166,16 @@ int					get_next_line(const int fd, char **line)
 		printf("ret = '%i'  buf: '%s'\nbuf length = %zu\n", ret, buf, ft_strlen(buf));
 		// verifier ret
 		if (stock[fd] && ft_strchr(stock[fd], '\n'))
-			if (checkstock(fd, stock, line))
-				return(1);
+		{
+			checkstock(fd, stock, line);
+			stock[fd] = ft_strfjoin(stock[fd], buf);
+			printf("oldstocknewbuf: '%s'\n\n", stock[fd]);
+			return(1);
+		}
 		if (ft_strchr(buf, '\n') &&
 				readline(stock, line, buf, fd))
 		{
-			printf("readline\n");
+			// printf("readline\n");
 			// if (ret < BUFF_SIZE)
 			// 	stock[fd] = ft_strfjoin(stock[fd], buf);
 			return (1);
